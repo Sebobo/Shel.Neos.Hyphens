@@ -1,0 +1,17 @@
+Neos:
+  Neos:
+    Ui:
+      resources:
+        javascript:
+          Shel.Neos:HyphensEditor:
+            resource: resource://Shel.Neos.Hyphens/Public/HyphensEditor/Plugin.js
+
+    fusion:
+      autoInclude:
+        Shel.Neos.Hyphens: true
+
+    userInterface:
+      translation:
+        autoInclude:
+          Shel.Neos.Hyphens:
+            - 'Main'

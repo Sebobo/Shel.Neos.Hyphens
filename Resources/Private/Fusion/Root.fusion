@@ -1,0 +1,20 @@
+prototype(Neos.Neos:Page) {
+    head {
+        guestFrameApplication {
+            @process.appendHyphensEditorStyles = Neos.Fusion:Tag {
+                tagName = 'link'
+                attributes {
+                    rel = 'stylesheet'
+                    href = Neos.Fusion:ResourceUri {
+                        path = 'resource://Shel.Neos.Hyphens/Public/HyphensEditor/Plugin.css'
+                    }
+                }
+            }
+        }
+    }
+
+    body {
+        @process.replaceHyphens = ${String.pregReplace(value, "/<span class=\"shy\">.*<\/span>/U", "&shy;")}
+        @process.replaceHyphens.@if.notInEditingMode = ${!documentNode.context.inBackend}
+    }
+}

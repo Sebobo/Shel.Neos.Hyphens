@@ -1,0 +1,24 @@
+{
+  "description": "Shel.Neos:HyphensEditor",
+  "license": "proprietary",
+  "private": true,
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "neos-react-scripts build && uglifyjs --compress --mangle -o ../../../Public/HyphensEditor/Plugin.js -- ../../../Public/HyphensEditor/Plugin.js",
+    "watch": "neos-react-scripts watch"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-engine": "^11.0",
+    "@ckeditor/ckeditor5-widget": "^10.3.1",
+    "@neos-project/neos-ui-extensibility": "^3.3.0",
+    "@neos-project/react-ui-components": "^3.3.0",
+    "lodash.omit": "^4.5.0",
+    "null-loader": "^0.1.1",
+    "raw-loader": "^2.0.0"
+  },
+  "neos": {
+    "buildTargetDirectory": "../../../Public/HyphensEditor"
+  }
+}

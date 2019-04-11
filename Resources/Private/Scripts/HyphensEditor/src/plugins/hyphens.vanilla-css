@@ -1,0 +1,15 @@
+span.shy,
+span.wbr {
+    background: #afe0ef;
+    padding: 0 1px;
+}
+
+span.shy::after,
+span.wbr::after {
+    content: '\2013';
+}
+
+span.shy [data-cke-filler],
+span.wbr [data-cke-filler] {
+    display: none;
+}

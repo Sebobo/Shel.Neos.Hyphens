@@ -1,0 +1,31 @@
+{
+  "name": "shel/neos-hyphens",
+  "type": "neos-plugin",
+  "description": "A plugin for Neos CMS which provides hyphens for the inline editor",
+  "license": "GPL-3.0",
+  "keywords": [
+    "neos",
+    "neoscms",
+    "flow",
+    "hyphens",
+    "ckeditor",
+    "editor"
+  ],
+  "authors": [
+    {
+      "name": "Sebastian Helzle",
+      "email": "sebastian@helzle.it",
+      "homepage": "https://www.helzle.it",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "neos/neos": "^3.3 || ^4.2",
+    "neos/neos-ui": "^2.1 || ^3.1"
+  },
+  "extra": {
+    "neos": {
+      "package-key": "Shel.Neos.Hyphens"
+    }
+  }
+}
