@@ -13,11 +13,19 @@ Currently only soft hyphens can be inserted, but word breaks are also planned.
 
 In the backend this plugin will add the option to add soft hyphens. They will look like this while editing:
 
-    TODO: Add screenshot       
+![Visible hyphens while editing](Documentation/neos-backend-hyphens.jpg)       
        
-And in the frontend result in the desired breaks:
+And in the frontend will convert this:
 
-    TODO: Add screenshot
+![Unwanted hyphenation without soft hyphens](Documentation/neos-frontend-before.jpg)
+
+Into this:
+
+![Expected hyphenation](Documentation/neos-frontend-after.jpg)
+
+And in action:
+
+![Expected hyphenation](Documentation/example.gif)
 
 ## Installation
 
