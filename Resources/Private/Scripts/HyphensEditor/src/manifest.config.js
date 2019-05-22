@@ -1,4 +1,4 @@
-import {$add, $get, $or} from 'plow-js';
+import {$add, $get} from 'plow-js';
 
 import Hyphens from './plugins/hyphens';
 

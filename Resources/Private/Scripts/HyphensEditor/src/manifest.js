@@ -5,6 +5,6 @@ import initializeConfigRegistry from './manifest.config';
 manifest('Shel.Neos:HyphenEditor', {}, globalRegistry => {
     const ckEditorRegistry = globalRegistry.get('ckEditor5');
 
-    const richtextToolbarRegistry = initializeRichtextToolbarRegistry(ckEditorRegistry);
-    const configRegistry = initializeConfigRegistry(ckEditorRegistry);
+    initializeRichtextToolbarRegistry(ckEditorRegistry);
+    initializeConfigRegistry(ckEditorRegistry);
 });

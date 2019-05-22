@@ -7,9 +7,17 @@ which can be used in Neos CMS with the Neos.Ui 2+.
 
 This package is still experimental!
 
+Currently only soft hyphens can be inserted, but word breaks are also planned.
+
 ## Example           
 
-Coming soon  
+In the backend this plugin will add the option to add soft hyphens. They will look like this while editing:
+
+    TODO: Add screenshot       
+       
+And in the frontend result in the desired breaks:
+
+    TODO: Add screenshot
 
 ## Installation
 
@@ -21,7 +29,15 @@ Then run `composer update` in your project directory.
 
 ## How to use
 
-Coming soon
+Enable it for a node with editable text like this:
+
+    'Neos.NodeTypes:Text':
+      properties:
+        text:
+          ui:
+            inline:
+              editorOptions:
+                hyphens: true
 
 ## Contributions
 
