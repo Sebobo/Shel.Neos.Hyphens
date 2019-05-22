@@ -15,9 +15,4 @@ prototype(Neos.Neos:Page) {
             }
         }
     }
-
-    body {
-        @process.replaceHyphens = ${String.pregReplace(value, "/<span class=\"shy\">.*<\/span>/U", "&shy;")}
-        @process.replaceHyphens.@if.notInEditingMode = ${!documentNode.context.inBackend}
-    }
 }
