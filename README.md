@@ -37,8 +37,6 @@ And in action:
 * (Maybe) Prevent successive hyphens.
 * (Maybe) Extended inspector text editor with hyphens support.
 
-**If you use this package and want to support or speed up it's development, [get in touch with me](mailto:hyphens@helzle.it).**
-
 ## Installation
 
 Run this in your site package
@@ -63,7 +61,11 @@ Enable it for a node with editable text like this:
 
 Contributions are very welcome! 
 
-Please create detailed issues and PRs.
+Please create detailed issues and PRs.  
+
+**If you use this package and want to support or speed up it's development, [get in touch with me](mailto:hyphens@helzle.it).**
+
+Or you can also support me directly via [patreon](https://www.patreon.com/shelzle).
 
 ## License
 
