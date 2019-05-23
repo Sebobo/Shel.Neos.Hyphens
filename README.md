@@ -2,12 +2,9 @@
 
 ## Introduction
 
-This package provides buttons to insert soft hyphens while inline editing 
-which can be used in Neos CMS with the Neos.Ui 2+.
+This package provides a button to insert soft hyphens for the inline editor in Neos CMS. 
 
-This package is still experimental!
-
-Currently only soft hyphens can be inserted, but word breaks are also planned.
+It's compatible with Neos CMS 3.3 and 4.x with the Neos.Ui 2+.
 
 ## Example           
 
@@ -25,7 +22,22 @@ Into this:
 
 And in action:
 
-![Expected hyphenation](Documentation/example.gif)
+![Expected hyphenation](Documentation/example.gif)                            
+                
+## Advantages
+
+* Your editors gain control over word breaks.
+* Stores the hyphens in the database with their UTF8 representation which the browser interprets as `&shy;`.
+* You don't need other characters which you replace with hyphens in the Frontend.
+* Should work fine with Elasticsearch and other search engines.
+
+### Planned features
+
+* Allow inserting word breaks `<wbr/>`.
+* (Maybe) Prevent successive hyphens.
+* (Maybe) Extended inspector text editor with hyphens support.
+
+**If you use this package and want to support or speed up it's development, [get in touch with me](mailto:hyphens@helzle.it).**
 
 ## Installation
 
@@ -52,3 +64,13 @@ Enable it for a node with editable text like this:
 Contributions are very welcome! 
 
 Please create detailed issues and PRs.
+
+## License
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
