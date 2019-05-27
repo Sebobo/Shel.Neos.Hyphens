@@ -39,9 +39,7 @@ And in action:
 
 ### Planned features
 
-* Allow inserting word breaks `<wbr/>`.
-* (Maybe) Prevent successive hyphens.
-* (Maybe) Extended inspector text editor with hyphens support.
+See [enhancement issue list](https://github.com/Sebobo/Shel.Neos.Hyphens/issues?utf8=✓&q=is%3Aissue+label%3Aenhancement+).
 
 ## Installation
 
