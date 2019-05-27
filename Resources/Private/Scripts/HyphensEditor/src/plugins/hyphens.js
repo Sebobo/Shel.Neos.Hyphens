@@ -3,6 +3,8 @@ import Range from '@ckeditor/ckeditor5-engine/src/view/range';
 import ShyCommand from '../commands/shy';
 import styles from './hyphens.vanilla-css';
 
+const softHyphenCharacter = '\u00AD';
+
 export default class Hyphens extends Plugin {
     static get pluginName() {
         return 'Hyphens';
@@ -26,7 +28,7 @@ export default class Hyphens extends Plugin {
                 let modelPosition = data.range.start;
                 let viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
 
-                const dataChunks = data.item.data.split('\u00AD');
+                const dataChunks = data.item.data.split(softHyphenCharacter);
                 for (let i = 0; i < dataChunks.length; i++) {
                     const chunk = dataChunks[i];
 
@@ -45,7 +47,7 @@ export default class Hyphens extends Plugin {
 
                     // Insert utf8 dash character as representation
                     // We will wrap in in a span in following lines.
-                    viewWriter.insert(viewPosition, viewWriter.createText('\u2013'));
+                    viewWriter.insert(viewPosition, viewWriter.createText(softHyphenCharacter));
 
                     const viewSpaceSpan = viewWriter.createAttributeElement('span', {class: 'shy'});
                     const modelWrapRange = new Range(modelPosition, modelPosition.getShiftedBy(1));
