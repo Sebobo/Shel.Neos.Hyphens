@@ -1,4 +1,8 @@
-# Hyphens CKEditor5 plugin for Neos CMS
+# Hyphens CKEditor5 plugin for Neos CMS   
+
+[![Latest Stable Version](https://poser.pugx.org/shel/neos-hyphens/v/stable)](https://packagist.org/packages/shel/neos-hyphens)
+[![Total Downloads](https://poser.pugx.org/shel/neos-hyphens/downloads)](https://packagist.org/packages/shel/neos-hyphens)
+[![License](https://poser.pugx.org/shel/neos-hyphens/license)](https://packagist.org/packages/shel/neos-hyphens)
 
 ## Introduction
 
