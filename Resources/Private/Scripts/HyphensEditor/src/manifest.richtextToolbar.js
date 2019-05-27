@@ -37,16 +37,5 @@ export default ckEditorRegistry => {
         isActive: $get('shy')
     });
 
-    // richtextToolbar.set('wbr', {
-    //     label: 'Wbr',
-    //     commandName: 'insertWbrTag',
-    //     component: ButtonComponent,
-    //     callbackPropName: 'onClick',
-    //     hoverStyle: 'brand',
-    //     tooltip: 'Neos.Neos.Ui:Main:ckeditor__toolbar__wbr',
-    //     isVisible: $get('hyphens'),
-    //     isActive: $get('wbr')
-    // });
-
     return richtextToolbar;
 };

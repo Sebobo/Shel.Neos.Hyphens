@@ -14,7 +14,6 @@ export default class Hyphens extends Plugin {
         const {editor} = this;
 
         editor.commands.add('insertShyEntity', new ShyCommand(this.editor));
-        // editor.commands.add('insertWbrTag', new WbrCommand(this.editor));
 
         editor.conversion.for('editingDowncast').add(dispatcher => {
             dispatcher.on('insert:$text', (evt, data, conversionApi) => {
