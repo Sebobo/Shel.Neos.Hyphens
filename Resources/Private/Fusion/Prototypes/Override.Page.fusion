@@ -1,0 +1,18 @@
+prototype(Neos.Neos:Page) {
+    head {
+        guestFrameApplication {
+            @process.appendHyphensEditorStyles = Neos.Fusion:Join {
+                value = ${value}
+                hyphensCSS = Neos.Fusion:Tag {
+                    tagName = 'link'
+                    attributes {
+                        rel = 'stylesheet'
+                        href = Neos.Fusion:ResourceUri {
+                            path = 'resource://Shel.Neos.Hyphens/Public/HyphensEditor/Plugin.css'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
