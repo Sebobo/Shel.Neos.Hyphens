@@ -60,6 +60,16 @@ Enable it for a node with editable text like this:
             inline:
               editorOptions:
                 hyphens: true
+                
+## Customization
+
+### Hyphen styling in the backend
+
+You can provide your own styling by referencing your own stylesheet.
+See the file `Override.Page.fusion` on how the default styling is included.
+
+You can either override the configuration from your own package and just use your stylesheet
+or you can add yours and use both. 
 
 ## Contributions
 
