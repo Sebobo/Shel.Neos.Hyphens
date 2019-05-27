@@ -2,7 +2,13 @@
 
 ## Introduction
 
-This package provides a button to insert soft hyphens for the inline editor in Neos CMS. 
+This package provides a button to insert soft hyphens for the inline editor in Neos CMS.
+
+Many browser support some kind of hyphenation via CSS but it doesnt work reliably on all systems 
+and not with all languages. See the [CanIuse](https://caniuse.com/#feat=css-hyphens) table for details.
+
+Therefore this package provides a manual way to insert them. You should be careful with using the 
+CSS based hyphenation in combination with the manual hyphens as the result can be unexpected.
 
 It's compatible with Neos CMS 3.3 and 4.x with the Neos.Ui 2+.
 
