@@ -2,6 +2,9 @@ Neos:
   Neos:
     Ui:
       resources:
+        stylesheets:
+          Shel.Neos:HyphensEditor:
+            resource: resource://Shel.Neos.Hyphens/Public/HyphensEditor/Plugin.css
         javascript:
           Shel.Neos:HyphensEditor:
             resource: resource://Shel.Neos.Hyphens/Public/HyphensEditor/Plugin.js
