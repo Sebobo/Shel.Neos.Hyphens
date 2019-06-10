@@ -7,7 +7,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "build": "NODE_ENV=production neos-react-scripts build && uglifyjs --compress --mangle -o ../../../Public/HyphensEditor/Plugin.js -- ../../../Public/HyphensEditor/Plugin.js",
+    "build": "NODE_ENV=production neos-react-scripts build && terser --compress --mangle -o ../../../Public/HyphensEditor/Plugin.js -- ../../../Public/HyphensEditor/Plugin.js",
     "watch": "neos-react-scripts watch"
   },
   "devDependencies": {
@@ -17,7 +17,8 @@
     "@neos-project/react-ui-components": "^3.3.0",
     "lodash.omit": "^4.5.0",
     "null-loader": "^0.1.1",
-    "raw-loader": "^2.0.0"
+    "raw-loader": "^2.0.0",
+    "terser": "^4.0.0"
   },
   "neos": {
     "buildTargetDirectory": "../../../Public/HyphensEditor"
