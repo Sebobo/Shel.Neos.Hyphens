@@ -2,11 +2,12 @@
   "description": "Shel.Neos:HyphensEditor",
   "license": "proprietary",
   "private": true,
+  "sideEffects": false,
   "engines": {
     "node": ">=8"
   },
   "scripts": {
-    "build": "neos-react-scripts build && uglifyjs --compress --mangle -o ../../../Public/HyphensEditor/Plugin.js -- ../../../Public/HyphensEditor/Plugin.js",
+    "build": "NODE_ENV=production neos-react-scripts build && uglifyjs --compress --mangle -o ../../../Public/HyphensEditor/Plugin.js -- ../../../Public/HyphensEditor/Plugin.js",
     "watch": "neos-react-scripts watch"
   },
   "devDependencies": {
