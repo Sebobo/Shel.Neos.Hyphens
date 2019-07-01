@@ -1,5 +1,4 @@
-import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import Range from '@ckeditor/ckeditor5-engine/src/view/range';
+import {Plugin, ViewRange} from 'ckeditor5-exports';
 import ShyCommand from '../commands/shy';
 import styles from './hyphens.vanilla-css';
 
@@ -49,7 +48,7 @@ export default class Hyphens extends Plugin {
                     viewWriter.insert(viewPosition, viewWriter.createText(softHyphenCharacter));
 
                     const viewSpaceSpan = viewWriter.createAttributeElement('span', {class: 'shy'});
-                    const modelWrapRange = new Range(modelPosition, modelPosition.getShiftedBy(1));
+                    const modelWrapRange = new ViewRange(modelPosition, modelPosition.getShiftedBy(1));
                     const viewWrapRange = conversionApi.mapper.toViewRange(modelWrapRange);
 
                     viewWriter.wrap(viewWrapRange, viewSpaceSpan);
