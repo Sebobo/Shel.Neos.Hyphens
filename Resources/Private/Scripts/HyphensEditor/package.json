@@ -14,7 +14,7 @@
     "@ckeditor/ckeditor5-engine": "^11.0",
     "@ckeditor/ckeditor5-widget": "^10.3.1",
     "@neos-project/neos-ui-extensibility": "^3.3.0",
-    "@neos-project/react-ui-components": "^3.3.0",
+    "@neos-project/react-ui-components": "^5.0.0",
     "lodash.omit": "^4.5.0",
     "null-loader": "^0.1.1",
     "raw-loader": "^2.0.0",
