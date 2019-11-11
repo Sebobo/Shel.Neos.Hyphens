@@ -18,7 +18,7 @@
     "lodash.omit": "^4.5.0",
     "null-loader": "^0.1.1",
     "raw-loader": "^2.0.0",
-    "terser": "^4.3.9"
+    "terser": "^4.4.0"
   },
   "neos": {
     "buildTargetDirectory": "../../../Public/HyphensEditor"
