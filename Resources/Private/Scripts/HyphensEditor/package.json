@@ -17,7 +17,7 @@
     "@neos-project/react-ui-components": "^3.3.0",
     "lodash.omit": "^4.5.0",
     "null-loader": "^0.1.1",
-    "raw-loader": "^2.0.0",
+    "raw-loader": "^3.1.0",
     "terser": "^4.4.0"
   },
   "neos": {
