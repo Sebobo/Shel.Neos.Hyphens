@@ -10,10 +10,10 @@ const addPlugin = (Plugin, isEnabled) => (ckEditorConfiguration, options) => {
     return ckEditorConfiguration;
 };
 
-export default ckEditorRegistry => {
+export default (ckEditorRegistry, editorConfig) => {
     const config = ckEditorRegistry.get('config');
 
-    config.set('hyphens', addPlugin(Hyphens, $get('hyphens')));
+    config.set('hyphens', addPlugin(Hyphens(editorConfig), $get('hyphens')));
 
     return config;
 };

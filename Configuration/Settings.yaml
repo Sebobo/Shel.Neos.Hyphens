@@ -9,6 +9,15 @@ Neos:
           Shel.Neos:HyphensEditor:
             resource: resource://Shel.Neos.Hyphens/Public/HyphensEditor/Plugin.js
 
+      frontendConfiguration:
+        'Shel.Neos:HyphensEditor':
+          # `shortcut` can be used to create a keyboard shortcut to insert soft hyphen
+          # Use any falsy value like `null` or `false` to disable it
+          shortcut:
+            - 'Ctrl'
+            - 'Shift'
+            - 189 # This is the minus sign
+
     fusion:
       autoInclude:
         Shel.Neos.Hyphens: true
