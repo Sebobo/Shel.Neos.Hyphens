@@ -1,0 +1,20 @@
+{
+    "description": "Shel.Neos:HyphensEditor",
+    "license": "GPL-3.0-or-later",
+    "version": "1.0.0",
+    "private": true,
+    "engines": {
+        "node": ">=14"
+    },
+    "scripts": {
+        "build": "yarn workspace hyphens-editor run build",
+        "watch": "yarn workspace hyphens-editor run watch"
+    },
+    "workspaces": [
+        "Resources/Private/Scripts/*"
+    ],
+    "browserslist": [
+        "> 1%",
+        "Last 2 versions"
+    ]
+}

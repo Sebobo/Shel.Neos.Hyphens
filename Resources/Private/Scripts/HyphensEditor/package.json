@@ -1,26 +1,17 @@
 {
-  "description": "Shel.Neos:HyphensEditor",
-  "license": "proprietary",
-  "private": true,
-  "sideEffects": false,
-  "engines": {
-    "node": ">=8"
-  },
-  "scripts": {
-    "build": "NODE_ENV=production neos-react-scripts build && terser --compress --mangle -o ../../../Public/HyphensEditor/Plugin.js -- ../../../Public/HyphensEditor/Plugin.js",
-    "watch": "neos-react-scripts watch"
-  },
-  "devDependencies": {
-    "@ckeditor/ckeditor5-engine": "^11.0",
-    "@ckeditor/ckeditor5-widget": "^10.3.1",
-    "@neos-project/neos-ui-extensibility": "^3.3.0",
-    "@neos-project/react-ui-components": "^3.3.0",
-    "lodash.omit": "^4.5.0",
-    "null-loader": "^0.1.1",
-    "raw-loader": "^2.0.0",
-    "terser": "^4.4.0"
-  },
-  "neos": {
-    "buildTargetDirectory": "../../../Public/HyphensEditor"
-  }
+    "name": "hyphens-editor",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "NODE_ENV=production neos-react-scripts build",
+        "watch": "neos-react-scripts watch"
+    },
+    "devDependencies": {
+        "@ckeditor/ckeditor5-engine": "^13.1.1",
+        "@ckeditor/ckeditor5-widget": "^10.3.1",
+        "@neos-project/neos-ui-extensibility": "^4.0.0",
+        "@neos-project/react-ui-components": "^4.0.0"
+    },
+    "neos": {
+        "buildTargetDirectory": "../../../Public/HyphensEditor"
+    }
 }
