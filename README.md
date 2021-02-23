@@ -65,7 +65,7 @@ Enable it for a node with editable text like this:
               editorOptions:
                 hyphens: true
 
-This will add a new button to insert a soft hyphen. As an alternative, you can use the shortcut `Control + Shift + -` (Mac) / `Strg + Shift + -` (Windows/Unix) to add a new soft hyphen. To change the keys of the shortcut, have a look at the [Settings.yaml](Configuration/Settings.yaml) file.
+This will add a new button to insert a soft hyphen. As an alternative, you can use the shortcut `Ctrl + Shift + -` to add a new soft hyphen. To change the keys of the shortcut, have a look at the [Settings.yaml](Configuration/Settings.yaml#L12) file.
 
 ## Customization
 
