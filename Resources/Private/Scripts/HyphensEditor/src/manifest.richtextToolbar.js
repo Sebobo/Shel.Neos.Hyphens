@@ -1,11 +1,12 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import omit from 'lodash.omit';
 import {$get} from 'plow-js';
 import {Button} from '@neos-project/react-ui-components';
 import {neos} from '@neos-project/neos-ui-decorators';
 import hyphensButtonTheme from './hyphensButtonTheme.css';
 import {themr} from '@friendsofreactjs/react-css-themr';
+
+const BUTTON_PROPS = ['formattingRule', 'inlineEditorOptions', 'i18nRegistry', 'tooltip', 'isActive', 'label'];
 
 @neos(globalRegistry => ({
     i18nRegistry: globalRegistry.get('i18n')
@@ -18,7 +19,10 @@ class ButtonComponent extends PureComponent {
     };
 
     render() {
-        const finalProps = omit(this.props, ['formattingRule', 'inlineEditorOptions', 'i18nRegistry', 'tooltip', 'isActive', 'label']);
+        const finalProps = Object.keys(this.props).reduce((carry, key) => {
+            if (BUTTON_PROPS.indexOf(key) === -1) carry[key] = this.props[key];
+            return carry;
+        }, {});
         return (
             <Button {...finalProps} isActive={Boolean(this.props.isActive)} className={hyphensButtonTheme['btn--no-padding']}
                     title={this.props.i18nRegistry.translate(this.props.tooltip)}>
