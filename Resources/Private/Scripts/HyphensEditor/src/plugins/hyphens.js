@@ -1,8 +1,10 @@
 import {Plugin, ViewRange} from 'ckeditor5-exports';
 import ShyCommand from '../commands/shy';
+import NbspCommand from '../commands/nbsp';
 import './hyphens.vanilla-css';
 
 const softHyphenCharacter = '\u00AD';
+const nbspCharacter = '\u00A0';
 
 function HyphensFactory(config) {
     return class Hyphens extends Plugin {
@@ -14,6 +16,8 @@ function HyphensFactory(config) {
             const {editor} = this;
 
             editor.commands.add('insertShyEntity', new ShyCommand(this.editor));
+            editor.commands.add('insertNbspEntity', new NbspCommand(this.editor));
+
             if (config.shortcut) {
                 editor.keystrokes.set(config.shortcut, 'insertShyEntity');
             }
@@ -30,37 +34,32 @@ function HyphensFactory(config) {
                     let modelPosition = data.range.start;
                     let viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
 
-                    const dataChunks = data.item.data.split(softHyphenCharacter);
+                    const dataChunks = data.item.data.split(/([\u00AD,\u00A0])/);
+
                     for (let i = 0; i < dataChunks.length; i++) {
                         const chunk = dataChunks[i];
 
-                        if (chunk !== '') {
-                            viewWriter.insert(viewPosition, viewWriter.createText(chunk));
+                        if (chunk === '') continue;
 
-                            // Need to recalculate `viewPosition` after every inserted item.
-                            modelPosition = modelPosition.getShiftedBy(chunk.length);
-                            viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
+                        viewWriter.insert(viewPosition, viewWriter.createText(chunk));
+
+                        // Wrap special characters with spans and matching classes for styling
+                        if (chunk === nbspCharacter || chunk === softHyphenCharacter) {
+                            const characterClass = chunk === nbspCharacter ? 'nbsp' : 'shy';
+                            const viewSpaceSpan = viewWriter.createAttributeElement('span', {
+                                class: characterClass,
+                            });
+                            const modelWrapRange = new ViewRange(modelPosition, modelPosition.getShiftedBy(1));
+                            const viewWrapRange = conversionApi.mapper.toViewRange(modelWrapRange);
+
+                            viewWriter.wrap(viewWrapRange, viewSpaceSpan);
                         }
-
-                        // Do not insert anything after the last chunk
-                        if (i === dataChunks.length - 1) {
-                            break;
-                        }
-
-                        // Insert utf8 dash character as representation
-                        // We will wrap in in a span in following lines.
-                        viewWriter.insert(viewPosition, viewWriter.createText(softHyphenCharacter));
-
-                        const viewSpaceSpan = viewWriter.createAttributeElement('span', {class: 'shy'});
-                        const modelWrapRange = new ViewRange(modelPosition, modelPosition.getShiftedBy(1));
-                        const viewWrapRange = conversionApi.mapper.toViewRange(modelWrapRange);
-
-                        viewWriter.wrap(viewWrapRange, viewSpaceSpan);
 
                         // Need to recalculate `viewPosition` after every inserted item.
-                        modelPosition = modelPosition.getShiftedBy(1);
+                        modelPosition = modelPosition.getShiftedBy(chunk.length);
                         viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
                     }
+                    evt.stop();
                 }, {priority: 'high'});
             });
         }

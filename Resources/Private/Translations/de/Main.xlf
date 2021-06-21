@@ -6,6 +6,10 @@
                 <source>Soft hyphen</source>
                 <target>Weiches Trennzeichen</target>
             </trans-unit>
+            <trans-unit id="ckeditor__toolbar__nbsp" xml:space="preserve">
+                <source>Non-breaking space</source>
+                <target>Geschütztes Trennzeichen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

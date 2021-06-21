@@ -5,6 +5,9 @@
             <trans-unit id="ckeditor__toolbar__shy" xml:space="preserve">
                 <source>Soft hyphen</source>
             </trans-unit>
+            <trans-unit id="ckeditor__toolbar__nbsp" xml:space="preserve">
+                <source>Non-breaking space</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

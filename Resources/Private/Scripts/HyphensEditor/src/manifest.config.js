@@ -13,7 +13,7 @@ const addPlugin = (Plugin, isEnabled) => (ckEditorConfiguration, options) => {
 export default (ckEditorRegistry, editorConfig) => {
     const config = ckEditorRegistry.get('config');
 
-    config.set('hyphens', addPlugin(Hyphens(editorConfig), $get('hyphens')));
+    config.set('hyphens', addPlugin(Hyphens(editorConfig), $get('hyphens') || $get('nbsp')));
 
     return config;
 };

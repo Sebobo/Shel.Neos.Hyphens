@@ -6,9 +6,9 @@
 
 ## Introduction
 
-This package provides a button to insert soft hyphens for the inline editor in Neos CMS.
+This package provides a button to insert soft hyphens and non-reaking spaces for the inline editor in Neos CMS.
 
-Many browser support some kind of hyphenation via CSS but it doesnt work reliably on all systems
+Many browser support some kind of hyphenation via CSS, but it doesn't work reliably on all systems
 and not with all languages. See the [CanIuse](https://caniuse.com/#feat=css-hyphens) table for details.
 
 Therefore this package provides a manual way to insert them. You should be careful with using the
@@ -37,8 +37,8 @@ And in action:
 ## Advantages
 
 * Your editors gain control over word breaks.
-* Stores the hyphens in the database with their UTF8 representation which the browser interprets as `&shy;`.
-* You don't need other characters which you replace with hyphens in the Frontend.
+* Stores the special character in the database with their UTF8 representation which the browser interprets as `&shy;`.
+* You don't need other characters which you replace with correct characters in the Frontend.
 * Should work fine with Elasticsearch and other search engines.
 
 ### Planned features
@@ -49,31 +49,43 @@ See [enhancement issue list](https://github.com/Sebobo/Shel.Neos.Hyphens/issues?
 
 Run this in your site package
 
-```console
-composer require --no-update shel/neos-hyphens
-```
+    composer require --no-update shel/neos-hyphens
 
 Then run `composer update` in your project directory.
 
 ## How to use
 
+### Hyphen
+
 Enable it for a node with editable text like this:
 
-```yaml
-"Neos.NodeTypes:Text":
- properties:
-  text:
-   ui:
-    inline:
-     editorOptions:
-      hyphens: true
-```
+    'Neos.NodeTypes:Text':
+      properties:
+        text:
+          ui:
+            inline:
+              editorOptions:
+                hyphens: true
 
 This will add a new button to insert a soft hyphen. As an alternative, you can use the shortcut `Ctrl + Shift + -` to add a new soft hyphen. To change the keys of the shortcut, have a look at the [Settings.yaml](Configuration/Settings.yaml#L12) file.
 
+### Non-breaking space
+
+Enable it for a node with editable text like this:
+
+    'Neos.NodeTypes:Text':
+      properties:
+        text:
+          ui:
+            inline:
+              editorOptions:
+                nbsp: true
+
+This will add a new button to insert a non-breaking space.
+
 ## Customization
 
-### Hyphen styling in the backend
+### Hyphen & non-breaking space styling in the backend
 
 You can provide your own styling by referencing your own stylesheet.
 See the file `Override.Page.fusion` on how the default styling is included.
