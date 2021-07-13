@@ -6,19 +6,19 @@
 
 ## Introduction
 
-This package provides a button to insert soft hyphens and non-reaking spaces for the inline editor in Neos CMS.
+This package provides a button to insert soft hyphens and non-breaking spaces for the inline editor in Neos CMS.
 
-Many browser support some kind of hyphenation via CSS, but it doesn't work reliably on all systems
+Many browsers support some kind of hyphenation via CSS, but it doesn't work reliably on all systems
 and not with all languages. See the [CanIuse](https://caniuse.com/#feat=css-hyphens) table for details.
 
 Therefore this package provides a manual way to insert them. You should be careful with using the
-CSS based hyphenation in combination with the manual hyphens as the result can be unexpected.
+CSS-based hyphenation in combination with the manual hyphens as results can be unexpected.
 
 It's compatible with Neos CMS 4.3, 5 and 7.
 
 ## Example
 
-In the backend this plugin will add the option to add soft hyphens. They will look like this while editing:
+In the backend, this plugin will add the option to add soft hyphens. They will look like this while editing:
 
 ![Visible hyphens while editing](Documentation/neos-backend-hyphens.jpg)
 
@@ -37,8 +37,8 @@ And in action:
 ## Advantages
 
 * Your editors gain control over word breaks.
-* Stores the special character in the database with their UTF8 representation which the browser interprets as `&shy;`.
-* You don't need other characters which you replace with correct characters in the Frontend.
+* Stores the special character in the database with their UTF8 representation, which the browser interprets as `&shy;`.
+* You don't need other characters which you replace with correct characters in the frontend.
 * Should work fine with Elasticsearch and other search engines.
 
 ### Planned features
@@ -67,7 +67,7 @@ Enable it for a node with editable text like this:
               editorOptions:
                 hyphens: true
 
-This will add a new button to insert a soft hyphen. As an alternative, you can use the shortcut `Ctrl + Shift + -` to add a new soft hyphen. To change the keys of the shortcut, have a look at the [Settings.yaml](Configuration/Settings.yaml#L12) file.
+This will add a new button to insert a soft hyphen. As an alternative, you can use the shortcut `Ctrl + Shift + -` to add a new soft hyphen. To change the shortcut keys, have a look at the [Settings.yaml](Configuration/Settings.yaml#L12) file.
 
 ### Non-breaking space
 
