@@ -18,7 +18,7 @@
     position: relative;
     border-radius: 3px;
     margin: 0 0.05ch;
-    position: relative;
+    padding: 0 0.1ch;
 }
 
 .ck-content .nbsp::before {
