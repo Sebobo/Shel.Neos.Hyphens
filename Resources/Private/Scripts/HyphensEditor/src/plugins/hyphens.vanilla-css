@@ -32,11 +32,11 @@
 
 .ck-content .nbsp::after {
     content: '';
-    width: 100%;
-    height: 0.6ch;
     position: absolute;
-    bottom: 0.3ch;
+    left: 0;
     right: 0;
+    bottom: 0.3ch;
+    height: 0.6ch;
     border-left: 0.2ch solid currentColor;
     border-right: 0.2ch solid currentColor;
 }
