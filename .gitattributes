@@ -1,3 +1,13 @@
+# Skip diff in git
 *.map binary
 Plugin.js binary
 Plugin.css binary
+
+# Ignore files in releases
+Resources/Private/Scripts export-ignore
+.editorconfig export-ignore
+.eslintrc export-ignore
+.nvmrc export-ignore
+.yarnrc.yml export-ignore
+yarn.lock export-ignore
+package.json export-ignore

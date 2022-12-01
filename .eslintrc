@@ -8,5 +8,8 @@
     "env": {
         "node": true,
         "mocha": true
+    },
+    "parserOptions": {
+        "requireConfigFile": false
     }
 }

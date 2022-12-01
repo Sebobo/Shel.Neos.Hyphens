@@ -13,8 +13,5 @@
     "workspaces": [
         "Resources/Private/Scripts/*"
     ],
-    "browserslist": [
-        "> 1%",
-        "Last 2 versions"
-    ]
+    "packageManager": "yarn@3.3.0"
 }
