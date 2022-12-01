@@ -1,4 +1,4 @@
-import {Plugin, ViewRange} from 'ckeditor5-exports';
+import {ViewRange} from 'ckeditor5-exports';
 import ShyCommand from '../commands/shy';
 import NbspCommand from '../commands/nbsp';
 import './hyphens.vanilla-css';
@@ -7,63 +7,57 @@ const softHyphenCharacter = '\u00AD';
 const nbspCharacter = '\u00A0';
 
 function HyphensFactory(config) {
-    return class Hyphens extends Plugin {
-        static get pluginName() {
-            return 'Hyphens';
+    return function Hyphens(editor) {
+        editor.commands.add('insertShyEntity', ShyCommand(editor));
+        editor.commands.add('insertNbspEntity', NbspCommand(editor));
+
+        if (config.shortcut) {
+            editor.keystrokes.set(config.shortcut, 'insertShyEntity');
         }
 
-        init() {
-            const {editor} = this;
+        editor.conversion.for('editingDowncast').add(dispatcher => {
+            dispatcher.on('insert:$text', (evt, data, conversionApi) => {
+                // Here should be an `if` that would check whether the feature's command is enabled.
+                if (!conversionApi.consumable.consume(data.item, 'insert')) {
+                    return;
+                }
 
-            editor.commands.add('insertShyEntity', new ShyCommand(this.editor));
-            editor.commands.add('insertNbspEntity', new NbspCommand(this.editor));
+                const viewWriter = conversionApi.writer;
 
-            if (config.shortcut) {
-                editor.keystrokes.set(config.shortcut, 'insertShyEntity');
-            }
+                let modelPosition = data.range.start;
+                let viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
 
-            editor.conversion.for('editingDowncast').add(dispatcher => {
-                dispatcher.on('insert:$text', (evt, data, conversionApi) => {
-                    // Here should be an `if` that would check whether the feature's command is enabled.
-                    if (!conversionApi.consumable.consume(data.item, 'insert')) {
-                        return;
+                const dataChunks = data.item.data.split(/([\u00AD,\u00A0])/);
+
+                for (let i = 0; i < dataChunks.length; i++) {
+                    const chunk = dataChunks[i];
+
+                    if (chunk === '') {
+                        continue;
                     }
 
-                    const viewWriter = conversionApi.writer;
+                    viewWriter.insert(viewPosition, viewWriter.createText(chunk));
 
-                    let modelPosition = data.range.start;
-                    let viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
+                    // Wrap special characters with spans and matching classes for styling
+                    if (chunk === nbspCharacter || chunk === softHyphenCharacter) {
+                        const characterClass = chunk === nbspCharacter ? 'nbsp' : 'shy';
+                        const viewSpaceSpan = viewWriter.createAttributeElement('span', {
+                            class: characterClass
+                        });
+                        const modelWrapRange = new ViewRange(modelPosition, modelPosition.getShiftedBy(1));
+                        const viewWrapRange = conversionApi.mapper.toViewRange(modelWrapRange);
 
-                    const dataChunks = data.item.data.split(/([\u00AD,\u00A0])/);
-
-                    for (let i = 0; i < dataChunks.length; i++) {
-                        const chunk = dataChunks[i];
-
-                        if (chunk === '') continue;
-
-                        viewWriter.insert(viewPosition, viewWriter.createText(chunk));
-
-                        // Wrap special characters with spans and matching classes for styling
-                        if (chunk === nbspCharacter || chunk === softHyphenCharacter) {
-                            const characterClass = chunk === nbspCharacter ? 'nbsp' : 'shy';
-                            const viewSpaceSpan = viewWriter.createAttributeElement('span', {
-                                class: characterClass,
-                            });
-                            const modelWrapRange = new ViewRange(modelPosition, modelPosition.getShiftedBy(1));
-                            const viewWrapRange = conversionApi.mapper.toViewRange(modelWrapRange);
-
-                            viewWriter.wrap(viewWrapRange, viewSpaceSpan);
-                        }
-
-                        // Need to recalculate `viewPosition` after every inserted item.
-                        modelPosition = modelPosition.getShiftedBy(chunk.length);
-                        viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
+                        viewWriter.wrap(viewWrapRange, viewSpaceSpan);
                     }
-                    evt.stop();
-                }, {priority: 'high'});
-            });
-        }
-    }
+
+                    // Need to recalculate `viewPosition` after every inserted item.
+                    modelPosition = modelPosition.getShiftedBy(chunk.length);
+                    viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
+                }
+                evt.stop();
+            }, {priority: 'high'});
+        });
+    };
 }
 
 export default HyphensFactory;

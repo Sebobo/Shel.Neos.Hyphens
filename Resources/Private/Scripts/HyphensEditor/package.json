@@ -8,6 +8,7 @@
     "devDependencies": {
         "@ckeditor/ckeditor5-engine": "^13.1.1",
         "@ckeditor/ckeditor5-widget": "^10.3.1",
+        "@neos-project/eslint-config-neos": "^2.6.1",
         "@neos-project/neos-ui-extensibility": "^4.0.0",
         "@neos-project/react-ui-components": "^4.0.0"
     },

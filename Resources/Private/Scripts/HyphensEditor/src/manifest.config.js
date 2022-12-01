@@ -1,6 +1,6 @@
 import {$add, $get} from 'plow-js';
 
-import Hyphens from './plugins/hyphens';
+import HyphensFactory from './plugins/hyphens';
 
 const addPlugin = (Plugin, isEnabled) => (ckEditorConfiguration, options) => {
     if (!isEnabled || isEnabled(options.editorOptions, options)) {
@@ -13,7 +13,8 @@ const addPlugin = (Plugin, isEnabled) => (ckEditorConfiguration, options) => {
 export default (ckEditorRegistry, editorConfig) => {
     const config = ckEditorRegistry.get('config');
 
-    config.set('hyphens', addPlugin(Hyphens(editorConfig), $get('hyphens') || $get('nbsp')));
+    const HyphensPlugin = HyphensFactory(editorConfig);
+    config.set('hyphens', addPlugin(HyphensPlugin, $get('hyphens') || $get('nbsp')));
 
     return config;
 };
