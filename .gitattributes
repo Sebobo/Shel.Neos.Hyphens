@@ -4,10 +4,11 @@ Plugin.js binary
 Plugin.css binary
 
 # Ignore files in releases
-Resources/Private/Scripts export-ignore
-.editorconfig export-ignore
-.eslintrc export-ignore
-.nvmrc export-ignore
-.yarnrc.yml export-ignore
-yarn.lock export-ignore
-package.json export-ignore
+/.yarn export-ignore
+/Resources/Private/Scripts export-ignore
+/.editorconfig export-ignore
+/.eslintrc export-ignore
+/.nvmrc export-ignore
+/.yarnrc.yml export-ignore
+/package.json export-ignore
+/yarn.lock export-ignore
