@@ -1,4 +1,6 @@
-export default function NbspCommand(editor) {
+const NBSP_CHARACTER = '\u00A0';
+
+function NbspCommand(editor) {
     return {
         execute: () => {
             editor.model.change(writer => {
@@ -7,4 +9,9 @@ export default function NbspCommand(editor) {
             });
         }
     };
+}
+
+export {
+    NBSP_CHARACTER,
+    NbspCommand
 }
