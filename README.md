@@ -14,7 +14,7 @@ and not with all languages. See the [CanIuse](https://caniuse.com/#feat=css-hyph
 Therefore this package provides a manual way to insert them. You should be careful with using the
 CSS-based hyphenation in combination with the manual hyphens as results can be unexpected.
 
-It's compatible with Neos CMS 4.3, 5 and 7.
+It's compatible with Neos CMS 4.3, 5, 7 and 8.
 
 ## Example
 
@@ -49,7 +49,9 @@ See [enhancement issue list](https://github.com/Sebobo/Shel.Neos.Hyphens/issues?
 
 Run this in your site package
 
-    composer require --no-update shel/neos-hyphens
+```bash
+composer require --no-update shel/neos-hyphens
+```
 
 Then run `composer update` in your project directory.
 
@@ -59,13 +61,15 @@ Then run `composer update` in your project directory.
 
 Enable it for a node with editable text like this:
 
-    'Neos.NodeTypes:Text':
-      properties:
-        text:
-          ui:
-            inline:
-              editorOptions:
-                hyphens: true
+```yaml
+'Neos.NodeTypes:Text':
+  properties:
+    text:
+      ui:
+        inline:
+          editorOptions:
+            hyphens: true
+```
 
 This will add a new button to insert a soft hyphen. As an alternative, you can use the shortcut `Ctrl + Shift + -` to add a new soft hyphen. To change the shortcut keys, have a look at the [Settings.yaml](Configuration/Settings.yaml#L12) file.
 
@@ -73,13 +77,15 @@ This will add a new button to insert a soft hyphen. As an alternative, you can u
 
 Enable it for a node with editable text like this:
 
-    'Neos.NodeTypes:Text':
-      properties:
-        text:
-          ui:
-            inline:
-              editorOptions:
-                nbsp: true
+```yaml
+'Neos.NodeTypes:Text':
+  properties:
+    text:
+      ui:
+        inline:
+          editorOptions:
+            nbsp: true
+```
 
 This will add a new button to insert a non-breaking space.
 
