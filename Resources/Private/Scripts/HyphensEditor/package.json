@@ -1,18 +1,16 @@
 {
-    "name": "hyphens-editor",
-    "version": "1.0.0",
-    "scripts": {
-        "build": "NODE_ENV=production neos-react-scripts build",
-        "watch": "neos-react-scripts watch"
-    },
-    "devDependencies": {
-        "@ckeditor/ckeditor5-engine": "^13.1.1",
-        "@ckeditor/ckeditor5-widget": "^10.3.1",
-        "@neos-project/eslint-config-neos": "^2.6.1",
-        "@neos-project/neos-ui-extensibility": "^4.0.0",
-        "@neos-project/react-ui-components": "^4.0.0"
-    },
-    "neos": {
-        "buildTargetDirectory": "../../../Public/HyphensEditor"
-    }
+  "name": "hyphens-editor",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "NODE_ENV=production neos-react-scripts build",
+    "watch": "neos-react-scripts watch"
+  },
+  "devDependencies": {
+    "@neos-project/neos-ui-extensibility": "^8.3.0",
+    "@neos-project/neos-ui-extensibility-webpack-adapter": "^8.3.0",
+    "@neos-project/react-ui-components": "^8.3.0"
+  },
+  "neos": {
+    "buildTargetDirectory": "../../../Public/HyphensEditor"
+  }
 }

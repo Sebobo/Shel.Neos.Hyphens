@@ -1,20 +1,18 @@
-import {$add, $get} from 'plow-js';
+import HyphensFactory from "./plugins/hyphens";
 
-import HyphensFactory from './plugins/hyphens';
-
-const addPlugin = (Plugin, isEnabled) => (ckEditorConfiguration, options) => {
-    if (!isEnabled || isEnabled(options.editorOptions, options)) {
+const addPlugin = (Plugin) => (ckEditorConfiguration, options) => {
+    if (options.editorOptions.nbsp || options.editorOptions.hyphens) {
         ckEditorConfiguration.plugins = ckEditorConfiguration.plugins || [];
-        return $add('plugins', Plugin, ckEditorConfiguration);
+        ckEditorConfiguration.plugins.push(Plugin);
     }
     return ckEditorConfiguration;
 };
 
 export default (ckEditorRegistry, editorConfig) => {
-    const config = ckEditorRegistry.get('config');
+    const config = ckEditorRegistry.get("config");
 
     const HyphensPlugin = HyphensFactory(editorConfig);
-    config.set('hyphens', addPlugin(HyphensPlugin, $get('hyphens') || $get('nbsp')));
+    config.set("hyphens", addPlugin(HyphensPlugin));
 
     return config;
 };

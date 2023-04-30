@@ -7,7 +7,7 @@ Plugin.css binary
 /.yarn export-ignore
 /Resources/Private/Scripts export-ignore
 /.editorconfig export-ignore
-/.eslintrc export-ignore
+/.eslintrc.js export-ignore
 /.nvmrc export-ignore
 /.yarnrc.yml export-ignore
 /package.json export-ignore
