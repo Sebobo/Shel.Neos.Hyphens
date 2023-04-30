@@ -14,7 +14,7 @@ and not with all languages. See the [CanIuse](https://caniuse.com/#feat=css-hyph
 Therefore this package provides a manual way to insert them. You should be careful with using the
 CSS-based hyphenation in combination with the manual hyphens as results can be unexpected.
 
-It's compatible with Neos CMS 4.3, 5, 7 and 8.
+It's compatible with Neos CMS 4.3, 5, 7 and 8 but only the active Neos LTS versions receive new bug fixes.
 
 ## Example
 
