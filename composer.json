@@ -20,8 +20,8 @@
     }
   ],
   "require": {
-    "neos/neos": "^4.3 || ^5.0 || ^7.0 || ^8.0 || dev-master",
-    "neos/neos-ui": "^4.0 || ^5.0 || ^7.0 || ^8.0 || dev-master"
+    "neos/neos": "^7.3 || ^8.0",
+    "neos/neos-ui": "^7.3 || ^8.0"
   },
   "extra": {
     "neos": {
