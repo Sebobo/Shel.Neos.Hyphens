@@ -80,8 +80,8 @@ export default ckEditorRegistry => {
         style: 'transparent',
         hoverStyle: 'brand',
         tooltip: 'Shel.Neos.Hyphens:Main:ckeditor__toolbar__shy',
-        isVisible: (config, bar, foo) => config.hyphens,
-        isActive: (config) => config.hyphens,
+        isVisible: (config, bar, foo) => config && config.hyphens,
+        isActive: (config) => config && config.hyphens,
     });
 
     richtextToolbar.set('nbsp', {
@@ -92,8 +92,8 @@ export default ckEditorRegistry => {
         style: 'transparent',
         hoverStyle: 'brand',
         tooltip: 'Shel.Neos.Hyphens:Main:ckeditor__toolbar__nbsp',
-        isVisible: (config) => config.nbsp,
-        isActive: (config) => config.nbsp,
+        isVisible: (config) => config && config.nbsp,
+        isActive: (config) => config && config.nbsp,
     });
 
     return richtextToolbar;

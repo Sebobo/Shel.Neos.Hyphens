@@ -1,7 +1,7 @@
 import HyphensFactory from "./plugins/hyphens";
 
 const addPlugin = (Plugin) => (ckEditorConfiguration, options) => {
-    if (options.editorOptions.nbsp || options.editorOptions.hyphens) {
+    if (options.editorOptions && (options.editorOptions.nbsp || options.editorOptions.hyphens)) {
         ckEditorConfiguration.plugins = ckEditorConfiguration.plugins || [];
         ckEditorConfiguration.plugins.push(Plugin);
     }
