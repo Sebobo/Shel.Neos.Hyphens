@@ -1,7 +1,7 @@
 prototype(Neos.Neos:Page) {
     head {
         guestFrameApplication {
-            @process.appendHyphensEditorStyles = Neos.Fusion:Array {
+            @process.appendHyphensEditorStyles = Neos.Fusion:Join {
                 value = ${value}
                 hyphensCSS = Neos.Fusion:Tag {
                     tagName = 'link'
