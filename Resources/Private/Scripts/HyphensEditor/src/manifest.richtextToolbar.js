@@ -80,7 +80,7 @@ export default ckEditorRegistry => {
         style: 'transparent',
         hoverStyle: 'brand',
         tooltip: 'Shel.Neos.Hyphens:Main:ckeditor__toolbar__shy',
-        isVisible: (config, bar, foo) => config && config.hyphens,
+        isVisible: (config) => config && config.hyphens,
         isActive: (config) => config && config.hyphens,
     });
 

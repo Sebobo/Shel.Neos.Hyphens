@@ -1,4 +1,4 @@
-import HyphensFactory from "./plugins/hyphens";
+import HyphensFactory from './plugins/hyphens';
 
 const addPlugin = (Plugin) => (ckEditorConfiguration, options) => {
     if (options.editorOptions && (options.editorOptions.nbsp || options.editorOptions.hyphens)) {
@@ -9,10 +9,10 @@ const addPlugin = (Plugin) => (ckEditorConfiguration, options) => {
 };
 
 export default (ckEditorRegistry, editorConfig) => {
-    const config = ckEditorRegistry.get("config");
+    const config = ckEditorRegistry.get('config');
 
     const HyphensPlugin = HyphensFactory(editorConfig);
-    config.set("hyphens", addPlugin(HyphensPlugin));
+    config.set('hyphens', addPlugin(HyphensPlugin));
 
     return config;
 };
