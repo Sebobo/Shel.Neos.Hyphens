@@ -56,7 +56,6 @@ function HyphensFactory(config) {
                         modelPosition = modelPosition.getShiftedBy(chunk.length);
                         viewPosition = conversionApi.mapper.toViewPosition(modelPosition);
                     }
-                    evt.stop();
                 },
                 { priority: 'high' },
             );
