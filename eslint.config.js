@@ -7,45 +7,39 @@ const react = require("eslint-plugin-react");
 const globals = require("globals");
 const js = require("@eslint/js");
 
-const {
-    FlatCompat,
-} = require("@eslint/eslintrc");
-
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
-
-module.exports = defineConfig([{
-    languageOptions: {
-        sourceType: "module",
-        parserOptions: {},
-
-        globals: {
-            ...globals.node,
+module.exports = defineConfig([
+    js.configs.recommended,
+    {
+        languageOptions: {
+            sourceType: "module",
+            parserOptions: {
+                ecmaVersion: 2022,
+                sourceType: "module",
+                ecmaFeatures: {
+                    jsx: true
+                }
+            },
+            globals: {
+                ...globals.node,
+            },
         },
-    },
 
-    extends: compat.extends(
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:prettier/recommended",
-    ),
-
-    plugins: {
-        prettier,
-        react,
-    },
-
-    settings: {
-        react: {
-            version: "detect",
+        plugins: {
+            prettier,
+            react,
         },
-    },
 
-    rules: {
-        "react/prop-types": "off",
-        "prettier/prettier": ["error"],
-    },
-}]);
+        settings: {
+            react: {
+                version: "detect",
+            },
+        },
+
+        rules: {
+            ...react.configs.recommended.rules,
+            ...prettier.configs.recommended.rules,
+            "react/prop-types": "off",
+            "prettier/prettier": ["error"],
+        },
+    }
+]);
