@@ -5,7 +5,16 @@ import { neos } from '@neos-project/neos-ui-decorators';
 
 import style from './editorButton.module.css';
 
-const BUTTON_PROPS = ['formattingRule', 'inlineEditorOptions', 'i18nRegistry', 'tooltip', 'isActive', 'label'];
+const BUTTON_PROPS = [
+    'formattingRule',
+    'inlineEditorOptions',
+    'i18nRegistry',
+    'tooltip',
+    'isActive',
+    'label',
+    'executeCommand',
+    'formattingUnderCursor',
+];
 
 const mapGlobalRegistryToProps = neos((globalRegistry) => ({
     i18nRegistry: globalRegistry.get('i18n'),
